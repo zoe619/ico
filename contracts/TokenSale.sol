@@ -4,7 +4,7 @@ import "./Token.sol";
 
 contract TokenSale{
 
-    address admin;
+    address payable admin;
     Token public tokenContract;
     uint256 public tokenPrice;
     uint256 public tokensSold;
@@ -33,5 +33,15 @@ contract TokenSale{
 
         emit Sell(msg.sender, _tokenNumber);
 
+    }
+
+    function endSale() public{
+        // makes sure only admin can endsal
+       require(msg.sender == admin);
+    //  transfer unsold tokens back to admins acoount
+       require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))));
+
+    //    self destruct contract
+       selfdestruct(admin);
     }
 }
