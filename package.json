@@ -1,0 +1,17 @@
+{
+    "name": "ICO",
+    "version": "1.0.0",
+    "description": "token and ico sale",
+    "main": "truffle.js",
+    "author": "James Lucky",
+    "license": "ISC",
+    "scripts": {
+        "dev": "lite-server"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "devDependencies": {
+        "lite-server": "^2.3.0"
+    }
+}
